@@ -3,13 +3,13 @@ import axios from "axios";
 let link = "app-b8c6868d-af05-422d-b256-d4d1285370cb.cleverapps.io";
 
 async function GetAll() {
-  const data = await axios.get(`http://${link}/tasks`);
+  const data = await axios.get(`https://${link}/tasks`);
   return data.data;
 }
 
 async function InsertTask(title, description, date) {
   try {
-    await axios.post(`http://${link}/tasks`, {
+    await axios.post(`https://${link}/tasks`, {
       title,
       description,
       date,
@@ -23,7 +23,7 @@ async function InsertTask(title, description, date) {
 
 async function DeleteTask(id) {
   try {
-    await axios.delete(`http://${link}/tasks` + id);
+    await axios.delete(`https://${link}/tasks` + id);
   } catch (error) {
     console.log("error delete");
     return true;
@@ -32,7 +32,7 @@ async function DeleteTask(id) {
 
 async function UpdateTask(id, title, description) {
   try {
-    await axios.put(`http://${link}/tasks` + id, {
+    await axios.put(`https://${link}/tasks` + id, {
       title,
       description,
     });
