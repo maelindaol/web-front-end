@@ -23,7 +23,7 @@ async function InsertTask(title, description, date) {
 
 async function DeleteTask(id) {
   try {
-    await axios.delete(`https://${link}/tasks` + id);
+    await axios.delete(`https://${link}/tasks/${id}`);
   } catch (error) {
     console.log("error delete");
     return true;
@@ -32,7 +32,7 @@ async function DeleteTask(id) {
 
 async function UpdateTask(id, title, description) {
   try {
-    await axios.put(`https://${link}/tasks` + id, {
+    await axios.put(`https://${link}/tasks/${id}`, {
       title,
       description,
     });
